@@ -22,7 +22,6 @@
    - The **passphrase** (optional) for decoding hidden data.  
 
 2. A Steghide extraction command is constructed and executed using:
-
    ```bash
    steghide extract -sf <imagePath> -p <passphrase> -xf temp_output.txt
 ````
@@ -35,7 +34,7 @@
 
 4. If extraction fails, the tool provides diagnostic messages based on Steghide’s output and exit code.
 
-
+---
 
 ## Requirements
 
@@ -48,44 +47,44 @@
 
 ## Usage
 
-### 1. Clone this repository:
+### 1. Clone this repository
 
 ```bash
 git clone https://github.com/<your-username>/SteghideDetection.git
 ```
 
-### 2. Navigate to the project directory:
+### 2. Navigate to the project directory
 
 ```bash
 cd SteghideDetection
 ```
 
-### 3. Compile the Java file:
+### 3. Compile the Java file
 
 ```bash
 javac SteghideDetection.java
 ```
 
-### 4. Run the program:
+### 4. Run the program
 
 ```bash
 java SteghideDetection
 ```
 
-### 5. Enter the image file path and optional passphrase when prompted.
+### 5. Enter the image file path and optional passphrase when prompted
 
 ---
 
 ## Example
 
-```
+```bash
 Enter the path of the image file (e.g., C:\Users\sample.jpg): C:\Users\Dhruv\Pictures\secret.jpg
 Enter the passphrase (leave empty if none): password123
 ```
 
 **Output:**
 
-```
+```bash
 Result: The image contains a hidden message.
 Hidden Message:
 Confidential Data: Project Alpha Key - 9A7X3B
@@ -108,5 +107,4 @@ You are free to use, modify, and distribute it with proper attribution.
 
 ```
 
-
-
+```
