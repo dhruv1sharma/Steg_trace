@@ -1,110 +1,95 @@
-# Steghide Detection Tool
+# StegHide Message: Detecting and Extracting Hidden Data from Images
 
-## Overview
-**Steghide Detection Tool** is a Java-based application designed to detect and extract hidden messages embedded within image files using the **Steghide** steganography utility. This tool provides an automated interface for analyzing images and retrieving concealed data, making it suitable for digital forensics, cybersecurity, and information security research.
+## Project Overview
 
----
-
-## Features
-- Detects hidden data within image files using Steghide.  
-- Supports passphrase-protected and unprotected steganographic files.  
-- Executes Steghide commands via Java's `ProcessBuilder` for cross-process communication.  
-- Automatically extracts hidden messages to a temporary file.  
-- Displays extraction status and hidden message content in the console.  
-- Cleans up temporary output files after processing.  
+StegHide Message is a digital forensics project focused on the detection and extraction of hidden information embedded within image files using steganographic techniques.  
+The project utilizes **OutGuess**, a popular steganography tool, to analyze images and uncover concealed messages for investigative and security purposes.  
+It demonstrates how hidden data can be encoded and later retrieved without visibly altering the cover image, forming a key component of modern forensic investigation and cybersecurity awareness.
 
 ---
 
-## How It Works
+## Key Features
 
-1. The program prompts the user for:
-   - The **image file path** to analyze.  
-   - The **passphrase** (optional) for decoding hidden data.  
+- **Steganography Detection and Extraction:**  
+  Identifies images containing hidden messages and extracts them using OutGuess.
 
-2. A Steghide extraction command is constructed and executed using:
+- **Practical Implementation:**  
+  Demonstrates real-world use of steganographic encoding and decoding techniques for secure message transfer.
+
+- **Forensic Application:**  
+  Aids in understanding how digital evidence can be concealed and later analyzed in cybersecurity investigations.
+
+- **User-Centric Workflow:**  
+  Simple step-by-step process to encode a secret message and decode it back without degrading image quality.
+
+---
+
+## Technical Overview
+
+1. **Encoding Process:**
+   - **Message Input:** A secret text message is prepared for embedding.  
+   - **Steganographic Embedding:** The message is hidden within an image using the OutGuess tool, which modifies bits of the image data without affecting visual appearance.  
+   - **Output:** Generates a stego-image containing the concealed message while maintaining the original image quality.
+
+2. **Decoding Process:**
+   - **Input Stego-Image:** The encoded image is processed through OutGuess to detect hidden data.  
+   - **Extraction:** The embedded secret message is successfully retrieved and displayed in its original text form.
+
+---
+
+## Applications
+
+StegHide Message can be used in several domains, such as:
+
+- **Cyber Forensics:**  
+  Helps investigators recover hidden evidence from images and analyze steganographic activity.
+
+- **Information Security Training:**  
+  Demonstrates how data can be hidden within media files, raising awareness of covert communication methods.
+
+- **Academic Research:**  
+  Serves as a reference model for understanding digital hiding mechanisms and their implications in cybersecurity.
+
+---
+
+## Installation & Usage
+
+### Prerequisites
+
+Ensure that **OutGuess** is installed and configured properly on your system.
+
+### Instructions
+
+1. **Clone the Repository:**
    ```bash
-   steghide extract -sf <imagePath> -p <passphrase> -xf temp_output.txt
-````
+   git clone https://github.com/YourUsername/StegHide-Message.git
 
-3. If Steghide successfully extracts data, the program:
 
-   * Reads the contents of `temp_output.txt`.
-   * Displays the extracted message in the console.
-   * Deletes the temporary file afterward.
+2. **Navigate to the Project Directory:**
 
-4. If extraction fails, the tool provides diagnostic messages based on Steghide’s output and exit code.
+   ```bash
+   cd StegHide-Message
+   
 
----
+3. **Encode a Secret Message:**
 
-## Requirements
+   ```bash
+   outguess -k "password" -d secret.txt input.jpg output.jpg
+   ```
 
-* **Java JDK 8 or higher**
-* **Steghide** installed on the system
-  (Ensure Steghide’s executable path is correctly set in the code or added to the system PATH)
-* Supported OS: **Windows, Linux, or macOS** (with path adjustments)
+4. **Extract the Hidden Message:**
 
----
+   ```bash
+   outguess -k "password" -r output.jpg reveal.txt
+   ```
 
-## Usage
-
-### 1. Clone this repository
-
-```bash
-git clone https://github.com/<your-username>/SteghideDetection.git
-```
-
-### 2. Navigate to the project directory
-
-```bash
-cd SteghideDetection
-```
-
-### 3. Compile the Java file
-
-```bash
-javac SteghideDetection.java
-```
-
-### 4. Run the program
-
-```bash
-java SteghideDetection
-```
-
-### 5. Enter the image file path and optional passphrase when prompted
-
----
-
-## Example
-
-```bash
-Enter the path of the image file (e.g., C:\Users\sample.jpg): C:\Users\Dhruv\Pictures\secret.jpg
-Enter the passphrase (leave empty if none): password123
-```
-
-**Output:**
-
-```bash
-Result: The image contains a hidden message.
-Hidden Message:
-Confidential Data: Project Alpha Key - 9A7X3B
-```
-
----
-
-## Notes
-
-* Ensure Steghide is properly installed and accessible via system path or by specifying its full path in the source code.
-* If no message is detected or an incorrect passphrase is provided, Steghide returns a non-zero exit code.
-* The tool is primarily designed for research and educational purposes in the field of steganography and digital forensics.
+The extracted message will be saved as `reveal.txt` in the project directory.
 
 ---
 
 ## License
 
-This project is released under the **MIT License**.
-You are free to use, modify, and distribute it with proper attribution.
-
-```
-
+This project is licensed under the **MIT License**.
+See the [LICENSE](./LICENSE) file for more details.
+Would you like me to make this into a downloadable `.md` file (so you can directly upload it to GitHub)?
 ```
