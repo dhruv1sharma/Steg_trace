@@ -35,7 +35,7 @@
 
 4. If extraction fails, the tool provides diagnostic messages based on Steghide’s output and exit code.
 
----
+
 
 ## Requirements
 
@@ -108,7 +108,5 @@ You are free to use, modify, and distribute it with proper attribution.
 
 ```
 
----
 
-✅ Just copy this entire block → paste into your `README.md` → commit → and it will render properly on GitHub with all headings, code blocks, and formatting.
-```
+
